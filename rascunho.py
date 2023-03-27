@@ -41,3 +41,10 @@
 #print(mes[valor])________________________________     
 T = int(input())
 N = [1,1000]
+____
+
+#nf = int(input())
+#nh = float(input())
+#vh = float(input())
+#print("NUMBER =",nf)
+#print("SALARY = U$",(nh*vh))

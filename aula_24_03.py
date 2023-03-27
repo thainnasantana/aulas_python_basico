@@ -1,9 +1,3 @@
-#nf = int(input())
-#nh = float(input())
-#vh = float(input())
-#print("NUMBER =",nf)
-#print("SALARY = U$",(nh*vh))
-
 nome = ""
 while nome != "zero" or "0" and nascimento != "zero" or "0":
     nome = input("Insira seu nome:" )
