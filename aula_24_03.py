@@ -1,14 +1,11 @@
-from datetime import datetime
-from datetime import date
+from datetime import datetime, date
 
 nome = input("Digite o nome: ")
-nascimento = input("Digite a data de nascimento: ")
-idade = date.today().year - datetime.strptime(nascimento, '%d/%m/%Y').year
 
-    if nome == "0" or "zero" and nascimento == "0" or "zero":
+while nome != "zero" and nome != "0":
+    nascimento = input("Digite a data de nascimento: ")
+    idade = date.today().year - datetime.strptime(nascimento, '%d/%m/%Y').year
+    
     print(nome, idade)
-    print("FIM")
-    while nome != "zero" or "0" and nascimento != "zero" or "0":
-    return
-
-
+    
+    nome = input("Digite o nome: ")
