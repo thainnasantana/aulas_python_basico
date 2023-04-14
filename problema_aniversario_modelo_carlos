@@ -1,0 +1,25 @@
+from datetime import datetime, date
+
+nome = input("Digite o nome: ")
+
+while nome != "zero" and nome != "0":
+    nascimento = input("Digite a data de nascimento: ")
+    if len(nascimento) != 10:
+        print("Formato Inválido! Digite com DD/MM/AAAA")
+        continue
+    
+    for caracter in nascimento:
+        if caracter not in '0123456789/':
+            print("Formado Inválido! Insira números válidos em DD/MM/AAAA")
+            break 
+    
+    nascimento = nascimento.split('/')
+    nascimento = {
+        "dia":int(nascimento[0]),
+        "mes":int(nascimento[1]),
+        "ano": int(nascimento[2])
+        }
+    
+    if nascimento["dia"] > 0 and nascimento["dia"] <= 31 and nascimento["mes"] > 0 and nascimento["mes"] <= 12 and nascimento["ano"] > 1910 and nascimento["ano"] <= date.today().year:
+        print("FIM")
+        break
