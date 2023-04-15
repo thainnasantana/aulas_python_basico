@@ -28,4 +28,4 @@ def calcular_idade(nome: str):
         ):
         print("Data Inválida! Insira novamente")
         return False
-    
+    return True
