@@ -1,0 +1,11 @@
+from funcao_nascimento import calcular_idade
+
+nome = input("Seu nome: ")
+
+while nome.lower() != "zero" and nome != "0":
+    if not calcular_idade(nome):
+        continue
+
+    nome = input("Nome: ")
+
+print("FIM")
