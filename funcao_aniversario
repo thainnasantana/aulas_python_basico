@@ -1,0 +1,31 @@
+from datetime import datetime, date
+
+hoje = date.today()
+
+def calcular_idade(nome: str):
+    data_de_nascimento = input("Sua data de nascimento: ")
+    
+    if len(data_de_nascimento) != 10:
+        print("Formato Inválido! Digite com DD/MM/AAAA")
+        return False
+    
+    for caracter in data_de_nascimento:
+        if caracter not in '0123456789/':
+            print("Formado Inválido! Insira números válidos em DD/MM/AAAA")
+            return False 
+    
+    data_de_nascimento = data_de_nascimento.split('/')
+    nascimento = {
+        "dia":int(data_de_nascimento[0]),
+        "mes":int(data_de_nascimento[1]),
+        "ano": int(data_de_nascimento[2])
+        }
+    
+    if(
+            (nascimento["dia"] < 0 or nascimento["dia"] > 31)
+            or (nascimento["mes"] < 0 or nascimento["mes"] > 12)
+            or (nascimento["ano"] < 1920 or nascimento["ano"] > date.today().year)
+        ):
+        print("Data Inválida! Insira novamente")
+        return False
+    
