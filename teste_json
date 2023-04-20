@@ -1,0 +1,8 @@
+import json
+
+arquivo = open("arquivo.json", "r")
+
+dicionario = json.load(arquivo)
+
+print(type(dicionario))
+print(dicionario)
