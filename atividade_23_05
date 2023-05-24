@@ -1,0 +1,12 @@
+1 - Defina, resumidamente, o que são Classes em programação orientada a objetos.
+Classe é um tipo de dado. Todo valor pertence a uma classe, por ex.: "Oi" pertence a classe string(stg).
+
+2 - Defina, resumidamente, o que são Objetos em programação orientada a objetos.
+Um objeto se refere a estruturas de dados e funcionalidades de um entidade para representar de modo próximo o mundo real. 
+
+4 e 5 - O que é um “dunder” em python? / - Defina, resumidamente, o que são métodos construtores e de um exemplo em
+python.
+Dunder, de doble underscores (conhecido como "underline", é caracterizado por iniciar com duas "underlines" no início 
+e ao fim da palavra, e que possuem atributos esécíficos, como por exemplo o"__init__", que é o construtor da classe, utilizado 
+para inicializar atributos.
+
