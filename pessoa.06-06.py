@@ -1,0 +1,77 @@
+from datetime import date
+
+hoje = date.today()
+
+
+class Pessoa:
+    def __init__(self, nome, nascimento):
+        self.__nome = nome
+        self.__nascimento = nascimento
+        self.idade = self.calcular_idade()
+        self.nova_pessoa = False
+    
+    @property
+    def nome(self):
+        return self.__nome
+
+    @nome.setter
+    def nome(self, n):
+        self.__nome = n
+    
+    @property
+    def nascimento(self):
+        return self.__nascimento
+
+    @nascimento.setter
+    def nascimento(self, n):
+        if not isinstance(self.nascimento, str):
+            print(n, type(n))
+            raise TypeError
+    
+        self.__nascimento = n
+
+        if self.idade == -1:
+            print("Idade inválida")
+            raise ValueError
+        
+    def to_dict(self) -> dict:
+        return vars(self)
+    
+    def calcular_idade(self): 
+        if len(self.__nascimento) != 10:
+            print("Formato Inválido! Digite com DD/MM/AAAA")
+            return -1
+    
+        for caracter in self.__nascimento:
+            if caracter not in '0123456789/':
+                print("Formado Inválido! Insira números válidos em DD/MM/AAAA")
+                return -1 
+    
+        nascimento = self.__nascimento.split('/') # type: ignore
+        nascimento = {
+        "Dia":int(nascimento[0]),
+        "Mês":int(nascimento[1]),
+        "Ano": int(nascimento[2])
+        }
+    
+        match nascimento["Mês"]:
+            case 1|3|5|7|8|10|12: #para meses com 31 dias
+                if nascimento["Dia"] < 1 or nascimento["Dia"] > 31:
+                    print("Erro. Digite a data novamente.")
+                    return -1
+            case 4|6|9|11: #para meses com 30 dias
+                if nascimento["Dia"] < 1 or nascimento["Dia"] > 30:
+                    print("Erro. Digite a data novamente.")
+                    return -1
+            case _: #para mês com 29 dias
+                if nascimento["Dia"] < 1 or nascimento["Dia"] > 29:
+                    print("Erro. Digite a data novamente.")
+                    return -1
+
+        idade = int(hoje.year - nascimento["Ano"])
+
+        if hoje < date(hoje.year, nascimento["Mês"], nascimento["Dia"]):
+            idade -= 1
+
+        return idade
+    
